@@ -23,7 +23,8 @@ navLinks.querySelectorAll('a').forEach(link => {
     '.item-row', '.tier-card', '.comp-card', '.nav-tile', '.sponsor-card',
     '.fact', '.role', '.callout', '.dbf-feature', '.price-card',
     '.mission-steps li', '.budget-card', '.timeline-row', '.contact-card',
-    '.cta-band .wrap > div', '.social-cta'
+    '.cta-band .wrap > div', '.social-cta',
+    '.banner img', '.dbf-hero-logo', '.feature-img-wrap', '.comp-card-logo'
   ].join(', ');
 
   const targets = Array.from(document.querySelectorAll(selectors));

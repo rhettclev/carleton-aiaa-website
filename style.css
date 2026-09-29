@@ -249,6 +249,13 @@ p.lead { color: var(--ink); font-size: 1.05rem; }
 .contact-item .cv { font-family: 'Space Grotesk'; font-weight: 600; }
 .contact-item a { color: inherit; }
 
+/* ===================== Feature images (real photography) ===================== */
+.feature-img-wrap { border-radius: 4px; overflow: hidden; margin-top: 32px; }
+.feature-img-wrap img { width: 100%; height: auto; display: block; }
+.feature-img-caption { font-family: 'JetBrains Mono'; font-size: 0.78rem; color: var(--ink-soft); margin-top: 10px; }
+
+.comp-card-logo { width: 100%; height: 140px; object-fit: contain; background: #000; border-radius: 3px; margin-bottom: 16px; }
+
 @media (max-width: 900px) {
   .hero .wrap { grid-template-columns: 1fr; }
   .hero-art { order: -1; max-width: 260px; margin: 0 auto 16px; opacity: 0.7; }
@@ -373,6 +380,7 @@ details p { margin-top: 12px; margin-bottom: 0; font-size: 0.95rem; }
 
 /* ===================== Closing CTA band (subpages) ===================== */
 .cta-band { background: var(--navy); color: #fff; }
+.cta-band + .cta-band { border-top: 1px solid var(--line-dark); }
 .cta-band .wrap {
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
   padding: 44px 28px;
@@ -390,7 +398,7 @@ details p { margin-top: 12px; margin-bottom: 0; font-size: 0.95rem; }
 .fact .fd { font-size: 0.86rem; color: var(--ink-soft); }
 
 /* ===================== DBF page specifics ===================== */
-.dbf-hero-logo { height: 1.15in; margin-bottom: 18px; }
+.dbf-hero-logo { height: 1.3in; margin-bottom: 18px; background: var(--paper); padding: 14px 22px; border-radius: 4px; }
 .mission-steps { counter-reset: m; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .mission-steps li { counter-increment: m; display: grid; grid-template-columns: 40px 1fr; gap: 16px; padding: 20px 0; border-top: 1px solid var(--line-light); }
 .mission-steps li:first-child { border-top: none; }
