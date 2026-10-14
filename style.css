@@ -114,6 +114,26 @@ p.lead { color: var(--ink); font-size: 1.05rem; }
 .nav-cta { margin-left: 8px; }
 .nav-toggle { display: none; }
 
+/* DBF Team dropdown (desktop: hover reveal; mobile: static sub-list, see media query) */
+.nav-item-dropdown { position: relative; }
+.nav-item-dropdown > a::after { content: ' \25BE'; font-size: 0.7em; opacity: 0.7; }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 8px); left: 0; margin: 0; padding: 6px 0; list-style: none;
+  min-width: 190px; background: var(--navy); border: 1px solid var(--line-dark); border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s; z-index: 60;
+}
+/* invisible bridge so the pointer can travel from the link to the menu without it closing */
+.nav-dropdown::before { content: ''; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
+.nav-item-dropdown:hover .nav-dropdown,
+.nav-item-dropdown:focus-within .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-dropdown a {
+  display: block; padding: 9px 18px; font-size: 0.9rem; white-space: nowrap;
+  color: rgba(255,255,255,0.82); text-decoration: none;
+}
+.nav-dropdown a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+
 @media (max-width: 1040px) {
   .nav-links {
     position: absolute; top: 72px; left: 0; right: 0; background: var(--navy);
@@ -127,6 +147,14 @@ p.lead { color: var(--ink); font-size: 1.05rem; }
     width: 40px; height: 40px; border-radius: 3px; font-size: 1.1rem;
   }
   .nav-cta { margin-left: 0; }
+
+  .nav-item-dropdown { width: 100%; }
+  .nav-dropdown {
+    position: static; opacity: 1; visibility: visible; transform: none; padding: 6px 0 0 14px; min-width: 0;
+    background: none; border: none; box-shadow: none;
+  }
+  .nav-dropdown::before { display: none; }
+  .nav-dropdown a { padding: 6px 0; color: rgba(255,255,255,0.65); }
 }
 
 /* ===================== Banner (full-bleed logo strip) ===================== */
@@ -190,7 +218,7 @@ p.lead { color: var(--ink); font-size: 1.05rem; }
 @media (max-width: 700px) { .sponsor-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 460px) { .sponsor-grid { grid-template-columns: 1fr; } }
 .sponsor-card {
-  border: 1px solid var(--line-light); border-radius: 4px; padding: 28px 20px;
+  border: 1px solid var(--line-light); border-radius: 4px; padding: 28px 20px; background: var(--paper);
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
   transition: border-color 0.15s ease, transform 0.2s ease;
 }
@@ -201,6 +229,20 @@ p.lead { color: var(--ink); font-size: 1.05rem; }
   border: 1px dashed var(--line-light); border-radius: 3px; background: var(--paper-2);
 }
 .sponsor-card img.sponsor-logo { object-fit: contain; padding: 8px; border: none; background: none; }
+.sponsor-logo-img { width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; mix-blend-mode: multiply; }
+.sponsor-logo-img.tier-partner { height: 76px; }
+.sponsor-logo-img.tier-gold { height: 60px; }
+.sponsor-logo-img.tier-silver { height: 48px; }
+.sponsor-logo-img.tier-bronze { height: 38px; }
+
+/* Homepage sponsor strip: logo size reflects sponsor level, no text labels */
+.sponsor-strip { display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; margin-top: 36px; }
+.sponsor-strip img { width: auto; object-fit: contain; mix-blend-mode: multiply; }
+.sponsor-strip img.tier-partner { height: 72px; }
+.sponsor-strip img.tier-gold { height: 56px; }
+.sponsor-strip img.tier-silver { height: 44px; }
+.sponsor-strip img.tier-bronze { height: 34px; }
+@media (max-width: 700px) { .sponsor-strip { gap: 34px; } }
 .sponsor-name { font-family: 'Space Grotesk'; font-weight: 600; font-size: 0.95rem; }
 .sponsor-tier-tag { font-family: 'JetBrains Mono'; font-size: 0.72rem; color: var(--red); }
 
