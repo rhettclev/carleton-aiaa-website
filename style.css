@@ -467,3 +467,45 @@ footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-directi
 footer a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.92rem; }
 footer a:hover { color: #fff; }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 22px; font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+/* ===================== Events ===================== */
+.event-list { display: flex; flex-direction: column; gap: 22px; }
+.event-card {
+  display: grid; grid-template-columns: 220px 1fr; gap: 0;
+  border: 1px solid var(--line-light); border-radius: 4px; overflow: hidden; background: var(--paper);
+  transition: border-color 0.15s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.event-card:hover { border-color: var(--red); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(11,15,25,0.08); }
+.event-poster { display: block; background: var(--navy); line-height: 0; }
+.event-poster img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.event-body { display: grid; grid-template-columns: 76px 1fr; gap: 24px; padding: 28px 30px; align-items: start; }
+.event-date {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  border-top: 2px solid var(--red); padding-top: 10px;
+}
+.event-date .ed-wk { font-size: 0.74rem; color: var(--red); text-transform: uppercase; letter-spacing: 0.04em; }
+.event-date .ed-day { font-family: 'Space Grotesk'; font-weight: 700; font-size: 2.2rem; line-height: 1.05; color: var(--ink); }
+.event-date .ed-mo { font-size: 0.78rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; }
+.event-type { font-size: 0.78rem; color: var(--red); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.03em; }
+.event-info h3 { font-size: clamp(1.3rem, 2.4vw, 1.65rem); line-height: 1.15; margin-bottom: 10px; }
+.event-speaker { margin-bottom: 14px; color: var(--ink-soft); }
+.event-speaker strong { color: var(--ink); font-weight: 600; }
+.event-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 14px; font-family: 'Space Grotesk'; font-weight: 600; font-size: 0.95rem; }
+.event-meta span + span { position: relative; padding-left: 18px; }
+.event-meta span + span::before { content: ''; position: absolute; left: 0; top: 50%; width: 8px; height: 2px; background: var(--red); }
+.event-desc { font-size: 0.95rem; }
+.event-note { font-size: 0.76rem; color: var(--ink-soft); letter-spacing: 0.02em; margin-bottom: 18px; }
+.event-info .btn { margin-top: 4px; }
+.event-empty { border: 1px dashed var(--line-light); border-radius: 4px; padding: 36px 30px; background: var(--paper-2); }
+.event-empty h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.event-empty p { margin: 0; }
+.event-empty a { color: var(--red); }
+.events-more { margin-top: 26px; }
+.past-speaker { font-weight: 400; color: var(--ink-soft); }
+@media (max-width: 760px) {
+  .event-card { grid-template-columns: 1fr; }
+  .event-poster img { aspect-ratio: auto; height: auto; max-height: 520px; object-fit: contain; }
+  .event-body { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
+  .event-date { flex-direction: row; gap: 10px; align-items: baseline; justify-content: flex-start; }
+  .event-date .ed-day { font-size: 1.4rem; }
+}
