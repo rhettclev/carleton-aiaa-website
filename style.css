@@ -512,3 +512,42 @@ footer a:hover { color: #fff; }
   .event-date { flex-direction: row; gap: 10px; align-items: baseline; justify-content: flex-start; }
   .event-date .ed-day { font-size: 1.4rem; }
 }
+
+/* ===================== Sponsor tiers (Sponsors page + homepage) =====================
+   One centred row per level, largest at the top: Partner > Gold > Silver > Bronze.
+   Each level caps logo height AND width so wide logos don't overpower tall ones. */
+.sponsor-tiers { display: flex; flex-direction: column; align-items: center; }
+.sponsor-tier {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 32px 56px; width: 100%; padding: 40px 0;
+}
+.sponsor-tier + .sponsor-tier { border-top: 1px solid var(--line-light); }
+.sponsor-tier a { display: flex; line-height: 0; }
+.sponsor-tier img {
+  width: auto; object-fit: contain;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.sponsor-tier a:hover img, .sponsor-tier a:focus-visible img { transform: translateY(-3px) scale(1.03); }
+.sponsor-tier.tier-partner img { height: 140px; max-width: 360px; }
+.sponsor-tier.tier-gold img    { height: 66px;  max-width: 180px; }
+.sponsor-tier.tier-silver img  { height: 44px;  max-width: 140px; }
+.sponsor-tier.tier-bronze img  { height: 34px;  max-width: 110px; }
+.sponsor-tier.tier-partner { padding-top: 8px; }
+.sponsor-tier.tier-gold { gap: 32px 48px; }
+
+/* homepage: same layout, a bit smaller */
+.sponsor-tiers.compact { margin-top: 28px; }
+.sponsor-tiers.compact .sponsor-tier { padding: 28px 0; gap: 26px 44px; }
+.sponsor-tiers.compact .sponsor-tier.tier-partner { padding-top: 4px; }
+.sponsor-tiers.compact .tier-partner img { height: 104px; max-width: 280px; }
+.sponsor-tiers.compact .tier-gold img    { height: 54px;  max-width: 160px; }
+.sponsor-tiers.compact .tier-silver img  { height: 38px;  max-width: 120px; }
+.sponsor-tiers.compact .tier-bronze img  { height: 30px;  max-width: 96px; }
+.sponsor-tiers.compact .sponsor-tier + .sponsor-tier { border-top-color: rgba(0,0,0,0.08); }
+
+@media (max-width: 700px) {
+  .sponsor-tier { padding: 28px 0; gap: 24px 32px; }
+  .sponsor-tier.tier-partner img, .sponsor-tiers.compact .tier-partner img { height: 92px; max-width: 240px; }
+  .sponsor-tier.tier-gold img, .sponsor-tiers.compact .tier-gold img { height: 48px; max-width: 132px; }
+  .sponsor-tier.tier-silver img, .sponsor-tiers.compact .tier-silver img { height: 36px; max-width: 108px; }
+}
