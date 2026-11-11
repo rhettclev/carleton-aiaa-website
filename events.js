@@ -72,7 +72,7 @@ const EVENTS = [
     const wk = d.toLocaleDateString('en-CA', { weekday: 'short' });
     const mo = d.toLocaleDateString('en-CA', { month: 'short' }).replace('.', '');
     const meta = [timeRange(ev), ev.location].filter(Boolean)
-      .map(t => '<span>' + esc(t) + '</span>').join('');
+      .map(t => '<span>' + esc(t) + '</span>').join('<i class="sep" aria-hidden="true"> · </i>');
     return '<article class="event-card">' +
       (ev.image
         ? '<a class="event-poster" href="' + esc(ev.image) + '" target="_blank" rel="noopener" aria-label="Open full poster for ' + esc(ev.title) + '">' +
@@ -80,7 +80,7 @@ const EVENTS = [
         : '') +
       '<div class="event-body">' +
         '<div class="event-date mono"><span class="ed-wk">' + esc(wk) + '</span>' +
-          '<span class="ed-day">' + d.getDate() + '</span><span class="ed-mo">' + esc(mo) + '</span></div>' +
+          ' <span class="ed-day">' + d.getDate() + '</span> <span class="ed-mo">' + esc(mo) + '</span></div>' +
         '<div class="event-info">' +
           (ev.type ? '<div class="event-type mono">' + esc(ev.type) + '</div>' : '') +
           '<h3>' + esc(ev.title) + '</h3>' +

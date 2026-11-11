@@ -231,18 +231,20 @@ a.sponsor-card { text-decoration: none; color: inherit; }
 }
 .sponsor-card img.sponsor-logo { object-fit: contain; padding: 8px; border: none; background: none; }
 .sponsor-logo-img { width: auto; max-width: 100%; object-fit: contain; margin: 0 auto; mix-blend-mode: multiply; }
-.sponsor-logo-img.tier-partner { height: 76px; }
-.sponsor-logo-img.tier-gold { height: 60px; }
-.sponsor-logo-img.tier-silver { height: 48px; }
-.sponsor-logo-img.tier-bronze { height: 38px; }
+/* Logo size = sponsor level. Each tier caps height AND width so very wide logos
+   don't look bigger than tall ones. Partner > Gold > Silver > Bronze. */
+.sponsor-logo-img.tier-partner { height: 92px; max-width: 240px; }
+.sponsor-logo-img.tier-gold    { height: 60px; max-width: 190px; }
+.sponsor-logo-img.tier-silver  { height: 46px; max-width: 150px; }
+.sponsor-logo-img.tier-bronze  { height: 36px; max-width: 120px; }
 
 /* Homepage sponsor strip: logo size reflects sponsor level, no text labels */
 .sponsor-strip { display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; margin-top: 36px; }
 .sponsor-strip img { width: auto; object-fit: contain; mix-blend-mode: multiply; }
-.sponsor-strip img.tier-partner { height: 72px; }
-.sponsor-strip img.tier-gold { height: 56px; }
-.sponsor-strip img.tier-silver { height: 44px; }
-.sponsor-strip img.tier-bronze { height: 34px; }
+.sponsor-strip img.tier-partner { height: 88px; max-width: 230px; }
+.sponsor-strip img.tier-gold    { height: 56px; max-width: 180px; }
+.sponsor-strip img.tier-silver  { height: 42px; max-width: 140px; }
+.sponsor-strip img.tier-bronze  { height: 32px; max-width: 110px; }
 .sponsor-strip a { display: flex; line-height: 0; }
 /* hover effect lives on the image, not the link: a transform on the link would break the multiply blend */
 .sponsor-strip a:hover img, .sponsor-strip a:focus-visible img { opacity: 0.7; }
@@ -491,8 +493,9 @@ footer a:hover { color: #fff; }
 .event-speaker { margin-bottom: 14px; color: var(--ink-soft); }
 .event-speaker strong { color: var(--ink); font-weight: 600; }
 .event-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 14px; font-family: 'Space Grotesk'; font-weight: 600; font-size: 0.95rem; }
-.event-meta span + span { position: relative; padding-left: 18px; }
-.event-meta span + span::before { content: ''; position: absolute; left: 0; top: 50%; width: 8px; height: 2px; background: var(--red); }
+.event-meta .sep { display: none; }
+.event-meta .sep + span { position: relative; padding-left: 18px; }
+.event-meta .sep + span::before { content: ''; position: absolute; left: 0; top: 50%; width: 8px; height: 2px; background: var(--red); }
 .event-desc { font-size: 0.95rem; }
 .event-note { font-size: 0.76rem; color: var(--ink-soft); letter-spacing: 0.02em; margin-bottom: 18px; }
 .event-info .btn { margin-top: 4px; }
