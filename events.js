@@ -32,7 +32,7 @@ const EVENTS = [
     location: "Azrieli Theatre 102, Carleton University",
     description: "",
     note: "All are welcome · No registration required",
-    image: "assets/event_2026-11-12_arrow_seminar.jpg",
+    image: "assets/event_2026-11-12_arrow_seminar_v2.jpg",
     imageAlt: "Poster for the seminar Once There Was an Arrow with guest speaker Walter Gordon, showing an Avro Arrow in flight",
     link: "",
     linkLabel: ""
